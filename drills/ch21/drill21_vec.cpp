@@ -21,7 +21,6 @@ struct Fruit{
 struct Fruit_ptr_cmp{
     bool operator()(const Fruit* a, const Fruit* b){
         return a->name < b->name;
-        //return a->quantity < b->quantity;
     }
 };
 
@@ -92,16 +91,8 @@ int main() {
         for(auto& i : vf){
             cout << i.name << endl;
         }
-
-//      map<string, int> mf;
 //8.:
-        /*
-        string iname = {"fruits.txt"};
-        ifstream ist {iname};
-        if(!ist) throw runtime_error("can't open file: " + iname);
 
-        for(Fruit fr; ist >> Fruit;) li.push_back(fr);
-        */
         list<Fruit> li{
             Fruit{"Plum", 3},
             Fruit{"Grape", 13},
