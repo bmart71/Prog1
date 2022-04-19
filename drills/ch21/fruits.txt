@@ -1,0 +1,8 @@
+Plum 3
+Grape 13
+Banana 73
+Apple 55
+Orange 62
+Cherry 21
+Plum 43
+Kiwi 99
