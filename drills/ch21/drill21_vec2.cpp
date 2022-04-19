@@ -25,14 +25,6 @@ double sum(C& c){
     }
     return sum;
 }
-/*
-struct Less_than{
-    double v;
-    public:
-        Less_than(double vv) : v{vv}{}
-        bool operator()(const double val) { return val < v ;}
-};
-*/
 int main() {
     try {
 //1.:
@@ -49,10 +41,6 @@ int main() {
 //3.:
         vector<int> vi(vd.size());
 
-/*      for(auto& d : vd)
-            vi.push_back(d);
-*/
-
         copy(vd.begin(), vd.end(), vi.begin());
         print(vi);
 //4.:
@@ -67,11 +55,6 @@ int main() {
         cout << vi_sum << endl;
 //6.:
         cout << vd_sum - vi_sum << endl;
-/*
-        double i_sum = accumulate(vi.begin(), vi.end(), 0.0);
-        double d_sum = accumulate(vd.begin(), vd.end(), 0.0);
-        double diff_sum = inner_product(vd.begin(), vd.end(), vi.begin(), 0.0, plus<double>(), minus<double>());
-*/
 //7.:
         reverse(vd.begin(), vd.end());
         print(vd);
@@ -85,10 +68,6 @@ int main() {
             if(vd[i] < vd_mean)
                 vd2.push_back(vd[i]);
         }
-/*
-        auto it = copy_if(vd.begin(), vd.end(), vd2.begin(), Less_than(vd_mean));
-        vd2.resize(std::distance(vd2.begin(),it));
-*/
         print(vd2);
 //10.:
         std::sort(vd.begin(), vd.end());
