@@ -9,11 +9,8 @@ using namespace std;
 template<typename K, typename V>
 void print(const map<K,V>& m){
 	for (auto& i : m){
-	//for (pair<K,V> i : m){
 		cout << i.first << '\t' << i.second << endl;
 	}
-	//for (auto& i : msi) // az auto& egy std::pair-t fog tartalmazni map esetén
-	//for (pair<K,V> i : msi)	
 }
 
 //5.:
@@ -22,7 +19,6 @@ void read_map(map<string, int>& m){
 	int i = 0;
 	while (m.size() < 10) {
 		cin >> s >> i;
-		//m[s] = i;
 		m.insert(make_pair(s, i));
 	}
 }
@@ -65,16 +61,7 @@ int main(){
 		cout << "enter 10 string, int pairs: " << endl;
 		read_map(msi);
 		cout << "msi map: (after read_map())" << endl;
-		print(msi);
-		
-/*		int map_sum = 0;
-		for(auto& i : msi)
-		for(pair<string,int> i : msi)
-			map_sum += i.second;*/
-/*		int total = accumulate (msi.begin(), msi.end(), 0,
-			[](int sum, const pair<string,int>& p) 
-			{return sum += p.second;}
-			);*/
+		print(msi);		
 //8.:			
 		int m_sum = map_sum(msi);
 		cout << "msi map_sum = " << m_sum << endl;
