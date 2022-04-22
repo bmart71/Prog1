@@ -30,28 +30,6 @@ int main(){
 		win.attach(grid);
 		win.wait_for_button();
 		
-		/*
-		Rectangle r {Point{0,0}, 100, 100};
-		r.set_fill_color(Color::red);
-		win.attach(r);
-		win.wait_for_button();
-		*/
-		
-//		vector<Rectangle*> rs;
-		
-/*		for(int i = 0; i < 8; i++){
-			rs.push_back(new Rectangle{Point(i*100, i*100}, 100, 100);
-		}*/
-		
-		/* new Osztály (konstruktor)
-		new Rectangle (Point{}, , )*/
-		
-/*		for(int i = 0; i < 8; ++i){
-			Rectangle rect (Point {i*100, i*100}, 100, 100);
-			rect.set_fill_color(Color::red);
-			win.attach(rect);
-		}*/
-
 		vector<Rectangle*> rects;
 		int rectCount = min(1000, 800) / 100;
 		for(int i = 0; i < rectCount; i++){
