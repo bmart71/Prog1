@@ -81,6 +81,12 @@ int main(){
                 nm(i, j) = n(i) * m(j);
             }            
         }
+        for (int i = 0; i < nm.dim1(); ++i) {
+			for (int j = 0; j < nm.dim2(); ++j)	{
+				cout << setw(5) << nm(i,j);
+			}
+			cout << '\n';
+		}
 //7.:
         Matrix<complex<double>> m4(10);
 
