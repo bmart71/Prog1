@@ -26,24 +26,19 @@ void S<T>::operator=(const T& s){
 	val = s;
 }
 
-/*template<typename T> T& S::set(T v){
-val = v;
-}*/
-
 template<typename T>
 void read_val(T& v){
 	cin >> v;
 }
 
 template<typename T>
-std::ostream& operator<<(ostream& os, vector<T>& v){
+std::ostream& operator<<(ostream& os, const vector<T>& v){
 	os << "{ ";
 	for (int i = 0; i < v.size(); ++i){
-		os << v[i] << (i.size());
-		os << " }\n";
+		os << v[i] << (i < v.size() - 1 ? ", " : " ");
 	}
+	os << "}\n";
 	return os;
-	// cout << vec1 << vec2 << vec3
 }
 
 template<typename T>
@@ -53,15 +48,15 @@ istream& operator>>(istream& is, vector<T>& v){
 	is >> ch;
 	if (ch != '{') {
 		is.unget();
+		return is;
+	}
+	for(T val; is >> val;) {
+		v.push_back(val);
+		is >> ch;
+		if (ch != ',') break;
+	}
 	return is;
 }
-for(T val; is >> val;) {
-	v.push_back(val);
-	is >> ch;
-	if (ch != ',') break;
-	return is;
-}
-
 
 int main(){
 	S<int> s;
@@ -69,7 +64,7 @@ int main(){
 	S<char> sc {'c'};
 	S<double> sd {3.2};
 	S<string> ss {"Hello"};
-	S<vector<int>> svi {vector{1,1,2,3,5,8}};
+	S<vector<int>> svi {vector<int>{1,1,2,3,5,8}};
 
 	cout << "S<int> : " << s.get() << endl
 	<< "S<int> : " << si.get() << endl
@@ -90,22 +85,25 @@ int main(){
 	cout << "S : " << sd.get() << "\n\n";
 
 	int ii;
+	cout << "Please enter an integer type: ";
 	read_val(ii);
-	S si2 {ii};
+	S<int> si2 {ii};
 
 	double dd;
+	cout << "Please enter a double type: ";
 	read_val(dd);
-	S sd2 {dd};
+	S<double> sd2 {dd};
 
 	string str;
+	cout << "Please enter a string type: ";
 	read_val(str);
-	S ss2 {str};
+	S<string> ss2 {str};
 
 	cout << "S<int> : " << si2.get() << "\n";
 	cout << "S<double> : " << sd2.get() << "\n";
 	cout << "S<string> : " << ss2.get() << "\n\n";
 
-	cout << "S<vector<int>> svi2: (format {val, val2, val3})";
+	cout << "S<vector<int>> svi2: ( format: \"{val, val2, val3}\" ) ";
 	vector<int> vec;
 	read_val(vec);
 	S<vector<int>> svi2 {vec};
